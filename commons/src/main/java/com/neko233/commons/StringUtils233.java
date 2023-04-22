@@ -1,9 +1,6 @@
 package com.neko233.commons;
 
 
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.jetbrains.annotations.Nullable;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -98,11 +95,11 @@ public class StringUtils233 {
      * <p>Whitespace is defined by {@link Character#isWhitespace(char)}.</p>
      *
      * <pre>
-     * StringUtils.isNotBlank(null)      = false
-     * StringUtils.isNotBlank("")        = false
-     * StringUtils.isNotBlank(" ")       = false
-     * StringUtils.isNotBlank("bob")     = true
-     * StringUtils.isNotBlank("  bob  ") = true
+     * com.neko233.commons.StringUti233233233isNotBlank(null)      = false
+     * com.neko233.commons.StringUti233233233isNotBlank("")        = false
+     * com.neko233.commons.StringUti233233233isNotBlank(" ")       = false
+     * com.neko233.commons.StringUti233233233isNotBlank("bob")     = true
+     * com.neko233.commons.StringUti233233233isNotBlank("  bob  ") = true
      * </pre>
      *
      * @param cs the CharSequence to check, may be null
@@ -120,7 +117,7 @@ public class StringUtils233 {
      * @return aaa -> Aaa
      */
     public static String firstWordUpperCase(String content) {
-        if (StringUtils.isBlank(content)) {
+        if (StringUtils233.isBlank(content)) {
             return content;
         }
         if (content.length() == 1) {
@@ -136,7 +133,7 @@ public class StringUtils233 {
      * @return AAa -> aAa
      */
     public static String firstWordLowerCase(String content) {
-        if (StringUtils.isBlank(content)) {
+        if (StringUtils233.isBlank(content)) {
             return content;
         }
         if (content.length() == 1) {
@@ -277,16 +274,16 @@ public class StringUtils233 {
      * maybe null
      *
      * <pre>
-     * StringUtils.substringBetween("wx[b]yz", "[", "]") = "b"
-     * StringUtils.substringBetween(null, *, *)          = null
-     * StringUtils.substringBetween(*, null, *)          = null
-     * StringUtils.substringBetween(*, *, null)          = null
-     * StringUtils.substringBetween("", "", "")          = ""
-     * StringUtils.substringBetween("", "", "]")         = null
-     * StringUtils.substringBetween("", "[", "]")        = null
-     * StringUtils.substringBetween("yabcz", "", "")     = ""
-     * StringUtils.substringBetween("yabcz", "y", "z")   = "abc"
-     * StringUtils.substringBetween("yabczyabcz", "y", "z")   = "abc"
+     * com.neko233.commons.StringUti233233233substringBetween("wx[b]yz", "[", "]") = "b"
+     * com.neko233.commons.StringUti233233233substringBetween(null, *, *)          = null
+     * com.neko233.commons.StringUti233233233substringBetween(*, null, *)          = null
+     * com.neko233.commons.StringUti233233233substringBetween(*, *, null)          = null
+     * com.neko233.commons.StringUti233233233substringBetween("", "", "")          = ""
+     * com.neko233.commons.StringUti233233233substringBetween("", "", "]")         = null
+     * com.neko233.commons.StringUti233233233substringBetween("", "[", "]")        = null
+     * com.neko233.commons.StringUti233233233substringBetween("yabcz", "", "")     = ""
+     * com.neko233.commons.StringUti233233233substringBetween("yabcz", "y", "z")   = "abc"
+     * com.neko233.commons.StringUti233233233substringBetween("yabczyabcz", "y", "z")   = "abc"
      * </pre>
      *
      * @param targetString the String containing the substring, may be null
@@ -341,7 +338,7 @@ public class StringUtils233 {
     }
 
 
-    public static String[] tokenizeToStringArray(@Nullable String str,
+    public static String[] tokenizeToStringArray(String str,
                                                  String delimiters) {
         return tokenizeToStringArray(str, delimiters, true, true);
     }
@@ -355,7 +352,7 @@ public class StringUtils233 {
      * @param ignoreEmptyTokens ignore empty?
      * @return String
      */
-    public static String[] tokenizeToStringArray(@Nullable String str,
+    public static String[] tokenizeToStringArray(String str,
                                                  String delimiters,
                                                  boolean trimTokens,
                                                  boolean ignoreEmptyTokens) {
@@ -383,8 +380,8 @@ public class StringUtils233 {
         }
     }
 
-    public static String[] toStringArray(@Nullable Collection<String> collection) {
-        return CollectionUtils.isNotEmpty(collection) ? collection.toArray(EMPTY_STRING_ARRAY) : EMPTY_STRING_ARRAY;
+    public static String[] toStringArray(Collection<String> collection) {
+        return CollectionUtils233.isNotEmpty(collection) ? collection.toArray(EMPTY_STRING_ARRAY) : EMPTY_STRING_ARRAY;
     }
 
     public static void appendByPrintStyle(StringBuilder builder,
