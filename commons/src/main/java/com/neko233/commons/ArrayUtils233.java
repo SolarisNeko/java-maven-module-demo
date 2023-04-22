@@ -1,4 +1,4 @@
-package com.neko233.toolchain.common.base;
+package com.neko233.commons;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -75,7 +75,9 @@ public class ArrayUtils233 {
      * @param index2 位置2
      * @return 交换后的数组，与传入数组为同一对象
      */
-    public static <T> T[] swap(T[] array, int index1, int index2) {
+    public static <T> T[] swap(T[] array,
+                               int index1,
+                               int index2) {
         if (isEmpty(array)) {
             throw new IllegalArgumentException("Array must not empty !");
         }
@@ -93,7 +95,9 @@ public class ArrayUtils233 {
      * @param index2    位置2
      * @return 交换后的数组，与传入数组为同一对象
      */
-    public static Object swap(Object baseArray, int index1, int index2) {
+    public static Object swap(Object baseArray,
+                              int index1,
+                              int index2) {
         if (ObjectUtils233.isAnyNull(baseArray)) {
             throw new IllegalArgumentException("Array must not empty !");
         }
@@ -113,7 +117,8 @@ public class ArrayUtils233 {
      * @return 值
      */
     @SuppressWarnings("unchecked")
-    public static <T> T get(Object array, int index) {
+    public static <T> T get(Object array,
+                            int index) {
         if (null == array) {
             return null;
         }
@@ -147,7 +152,8 @@ public class ArrayUtils233 {
      * @param excludedEnd   结束的数字（不包含）
      * @return 数字列表
      */
-    public static int[] range(int includedStart, int excludedEnd) {
+    public static int[] range(int includedStart,
+                              int excludedEnd) {
         return range(includedStart, excludedEnd, 1);
     }
 
@@ -160,7 +166,9 @@ public class ArrayUtils233 {
      * @param step          步进
      * @return 数字列表
      */
-    public static int[] range(int includedStart, int excludedEnd, int step) {
+    public static int[] range(int includedStart,
+                              int excludedEnd,
+                              int step) {
         if (includedStart > excludedEnd) {
             int tmp = includedStart;
             includedStart = excludedEnd;

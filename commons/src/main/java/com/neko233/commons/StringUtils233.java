@@ -1,9 +1,9 @@
-package com.neko233.toolchain.common.base;
+package com.neko233.commons;
 
 
-import com.neko233.toolchain.validator.annotation.Nullable;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Nullable;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
@@ -211,11 +211,14 @@ public class StringUtils233 {
         return cs == null ? 0 : cs.length();
     }
 
-    public static String truncate(final String str, final int maxWidth) {
+    public static String truncate(final String str,
+                                  final int maxWidth) {
         return truncate(str, 0, maxWidth);
     }
 
-    public static String truncate(final String str, final int offset, final int maxWidth) {
+    public static String truncate(final String str,
+                                  final int offset,
+                                  final int maxWidth) {
         if (offset < 0) {
             throw new IllegalArgumentException("offset cannot be negative");
         }
@@ -242,7 +245,8 @@ public class StringUtils233 {
         return upperCase(str, null);
     }
 
-    public static String upperCase(final String str, final Locale locale) {
+    public static String upperCase(final String str,
+                                   final Locale locale) {
         if (str == null) {
             return null;
         }
@@ -256,7 +260,8 @@ public class StringUtils233 {
         return lowerCase(str, null);
     }
 
-    public static String lowerCase(final String str, final Locale locale) {
+    public static String lowerCase(final String str,
+                                   final Locale locale) {
         if (str == null) {
             return null;
         }
@@ -290,7 +295,9 @@ public class StringUtils233 {
      * @return the substring, {@code null} if no match
      * @since 2.0
      */
-    public static String substringBetween(final String targetString, final String openStr, final String closeStr) {
+    public static String substringBetween(final String targetString,
+                                          final String openStr,
+                                          final String closeStr) {
         if (ObjectUtils233.isAnyNull(targetString, openStr, closeStr)) {
             return null;
         }
@@ -312,7 +319,8 @@ public class StringUtils233 {
      * @param separator 分隔符
      * @return trim 后的内容
      */
-    public static String splitTrimThenJoin(String s, String separator) {
+    public static String splitTrimThenJoin(String s,
+                                           String separator) {
         String notNullStr = Optional.of(s).orElse("");
         return Arrays.stream(notNullStr.split(separator)).map(String::trim).filter(StringUtils233::isNotBlank).collect(Collectors.joining(separator));
     }
@@ -320,7 +328,8 @@ public class StringUtils233 {
     /**
      * JDK 默认的 join 不方便
      */
-    public static String join(CharSequence delimiter, Object... elements) {
+    public static String join(CharSequence delimiter,
+                              Object... elements) {
         Objects.requireNonNull(delimiter);
         Objects.requireNonNull(elements);
         // Number of elements not likely worth Arrays.stream overhead.
@@ -332,7 +341,8 @@ public class StringUtils233 {
     }
 
 
-    public static String[] tokenizeToStringArray(@Nullable String str, String delimiters) {
+    public static String[] tokenizeToStringArray(@Nullable String str,
+                                                 String delimiters) {
         return tokenizeToStringArray(str, delimiters, true, true);
     }
 
@@ -345,7 +355,10 @@ public class StringUtils233 {
      * @param ignoreEmptyTokens ignore empty?
      * @return String
      */
-    public static String[] tokenizeToStringArray(@Nullable String str, String delimiters, boolean trimTokens, boolean ignoreEmptyTokens) {
+    public static String[] tokenizeToStringArray(@Nullable String str,
+                                                 String delimiters,
+                                                 boolean trimTokens,
+                                                 boolean ignoreEmptyTokens) {
         if (str == null) {
             return new String[]{};
         } else {
@@ -374,12 +387,15 @@ public class StringUtils233 {
         return CollectionUtils.isNotEmpty(collection) ? collection.toArray(EMPTY_STRING_ARRAY) : EMPTY_STRING_ARRAY;
     }
 
-    public static void appendByPrintStyle(StringBuilder builder, String key, Object value) {
+    public static void appendByPrintStyle(StringBuilder builder,
+                                          String key,
+                                          Object value) {
         builder.append(key).append(value).append("\n");
     }
 
 
-    public static String format(String strPattern, Object... argArray) {
+    public static String format(String strPattern,
+                                Object... argArray) {
         return template(strPattern, "{}", argArray);
     }
 
@@ -397,7 +413,9 @@ public class StringUtils233 {
      * @param argArray    参数列表
      * @return 结果
      */
-    public static String template(String pattern, String placeHolder, Object... argArray) {
+    public static String template(String pattern,
+                                  String placeHolder,
+                                  Object... argArray) {
         if (StringUtils233.isBlank(pattern) || StringUtils233.isBlank(placeHolder) || ArrayUtils233.isEmpty(argArray)) {
             return pattern;
         }
@@ -473,7 +491,8 @@ public class StringUtils233 {
      * @param charset 字符集
      * @return 字符串
      */
-    public static String stringIfNull(Object obj, Charset charset) {
+    public static String stringIfNull(Object obj,
+                                      Charset charset) {
         if (null == obj) {
             return null;
         }
@@ -501,7 +520,8 @@ public class StringUtils233 {
      * @return 去除后的字符
      * @since 4.2.2
      */
-    public static String removeAll(CharSequence str, char... chars) {
+    public static String removeAll(CharSequence str,
+                                   char... chars) {
         if (str == null) {
             return null;
         }
@@ -531,7 +551,8 @@ public class StringUtils233 {
      * @param value 被检查的元素
      * @return 是否包含
      */
-    private static boolean containsChar(char[] chars, char value) {
+    private static boolean containsChar(char[] chars,
+                                        char value) {
         if (null != chars) {
             for (int i = 0; i < chars.length; i++) {
                 if (value == chars[i]) {
@@ -542,7 +563,8 @@ public class StringUtils233 {
         return false;
     }
 
-    public static List<String> splitTrim(String str, String split) {
+    public static List<String> splitTrim(String str,
+                                         String split) {
         if (str == null) {
             return new ArrayList<>();
         }
@@ -557,7 +579,8 @@ public class StringUtils233 {
      * @param subPreIndex 切割到的位置（不包括）
      * @return 切割后的剩余的前半部分字符串
      */
-    public static String subPre(CharSequence string, int subPreIndex) {
+    public static String subPre(CharSequence string,
+                                int subPreIndex) {
         return sub(string, 0, subPreIndex);
     }
 
@@ -576,7 +599,9 @@ public class StringUtils233 {
      * @param toIndexExclude   结束的index（不包括）
      * @return 字串
      */
-    public static String sub(CharSequence str, int fromIndexInclude, int toIndexExclude) {
+    public static String sub(CharSequence str,
+                             int fromIndexInclude,
+                             int toIndexExclude) {
         if (isEmpty(str)) {
             return stringIfNull(str);
         }
@@ -630,7 +655,8 @@ public class StringUtils233 {
      * @param fromIndex 切割开始的位置（包括）
      * @return 切割后后剩余的后半部分字符串
      */
-    public static String subSuf(CharSequence string, int fromIndex) {
+    public static String subSuf(CharSequence string,
+                                int fromIndex) {
         if (isEmpty(string)) {
             return null;
         }
@@ -657,7 +683,9 @@ public class StringUtils233 {
      * @return 替换后的字符串
      * @since 4.1.14
      */
-    public static String hide(CharSequence str, int startInclude, int endExclude) {
+    public static String hide(CharSequence str,
+                              int startInclude,
+                              int endExclude) {
         return replaceEx(str, startInclude, endExclude, '*');
     }
 
@@ -672,7 +700,10 @@ public class StringUtils233 {
      * @return 替换后的字符串
      * @since 3.2.1
      */
-    public static String replaceEx(CharSequence str, int startInclude, int endExclude, char replacedChar) {
+    public static String replaceEx(CharSequence str,
+                                   int startInclude,
+                                   int endExclude,
+                                   char replacedChar) {
         if (isEmpty(str)) {
             return stringIfNull(str);
         }
@@ -825,11 +856,14 @@ public class StringUtils233 {
 
     /**
      * 每隔多少步, 加入一些
+     *
      * @param string
      * @param step
      * @return
      */
-    public static String joinByStep(String string, Integer step, String joiner) {
+    public static String joinByStep(String string,
+                                    Integer step,
+                                    String joiner) {
         if (StringUtils233.isBlank(string)) {
             return "";
         }

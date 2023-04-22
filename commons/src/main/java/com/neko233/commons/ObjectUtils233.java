@@ -1,4 +1,4 @@
-package com.neko233.toolchain.common.base;
+package com.neko233.commons;
 
 public class ObjectUtils233 {
 
