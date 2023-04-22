@@ -55,20 +55,37 @@
 
         <Automatic-Module-Name>com.neko233</Automatic-Module-Name>
 
-        <!-- versions -->
+        <!-- plugin -->
         <lombok.version>1.18.24</lombok.version>
+        <!-- Log -->
         <slf4j-api.version>1.7.36</slf4j-api.version>
     </properties>
 
     <dependencies>
 
+        <!-- Log Facade -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j-api.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- not provide, just use to test -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.11</version>
+            <!--            <scope>test</scope>-->
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
-            <scope>compile</scope>
-            <optional>true</optional>
+<!--            <scope>compile</scope>-->
+<!--            <optional>true</optional>-->
         </dependency>
+
 
         <!-- Apache | 比较通用, 还是保留了 -->
         <dependency>
@@ -124,6 +141,12 @@
 
     <build>
         <plugins>
+            <!-- Lombok -->
+            <plugin>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -167,7 +190,7 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <additionalJOption>-Xdoclint:none</additionalJOption>
                         </configuration>
                     </execution>
 
