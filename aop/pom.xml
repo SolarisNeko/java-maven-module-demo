@@ -6,20 +6,25 @@
 
     <parent>
         <groupId>com.neko233</groupId>
-        <artifactId>module-demo</artifactId>
-        <version>0.0.1</version>
+        <artifactId>java-maven-module-demo</artifactId>
+        <version>0.0.2</version>
     </parent>
 
     <artifactId>aop</artifactId>
+    <name>${project.artifactId}</name>
 
-    <name>aop</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.neko233</groupId>
+            <artifactId>commons</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
