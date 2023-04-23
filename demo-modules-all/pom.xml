@@ -9,10 +9,10 @@
 	<parent>
 		<groupId>com.neko233</groupId>
 		<artifactId>java-maven-module-demo</artifactId>
-		<version>0.0.3</version>
+		<version>0.0.4</version>
 	</parent>
 
-	<artifactId>neko233-utils-all</artifactId>
+	<artifactId>demo-modules-all</artifactId>
 	<name>${project.artifactId}</name>
 
 

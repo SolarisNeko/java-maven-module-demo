@@ -7,7 +7,7 @@
 
     <groupId>com.neko233</groupId>
     <artifactId>java-maven-module-demo</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4</version>
 
 
     <name>module-demo</name>
@@ -15,6 +15,7 @@
     <modules>
         <module>commons</module>
         <module>aop</module>
+        <module>demo-modules-all</module>
     </modules>
 
     <description>
